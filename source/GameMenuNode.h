@@ -4,13 +4,17 @@
 #include "MenuScreen.h"
 #include "SimpleButton.h"
 #include "Config.h"
+#include "TetrisNode.h"
 
 class GameMenuNode : public Node
 {
+	TetrisNode* tetrisNode;
 public:
 	// pass this in from main when you create it
 	GameMenuNode(SDL_Renderer* renderer_in = nullptr, Node* parentNode_in = nullptr) : Node(renderer_in, parentNode_in)
 	{
+		tetrisNode = new TetrisNode(renderer_in, this);
+		children.push_back(tetrisNode);
 
     	MenuScreen* tetrisScreen = createMenuScreen();
 		MenuScreen* froggerScreen = createMenuScreen();
@@ -32,7 +36,7 @@ public:
 		SimpleButton* tetrisButton = createSimpleButton(renderer_in, "gameMenuNodeImages/tetrisGameButton.png");
 		tetrisButton->setButtonPosition(windowWidth / 2 - tetrisButton->getButtonTexture()->getWidth() / 2,
 			windowHeight / 2 - tetrisButton->getHeight() / 2);
-		tetrisButton->setButtonAction(createAction(MOVE_NODES, getParentNode()));
+		tetrisButton->setButtonAction(createAction(MOVE_NODES, tetrisNode));
 		tetrisScreen->addButtonToScreen(tetrisButton);
 
 		SimpleButton* tetrisNextButton = createSimpleButton(renderer_in, "gameMenuNodeImages/nextScreenButton.png");

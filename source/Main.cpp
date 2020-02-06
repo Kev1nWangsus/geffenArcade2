@@ -5,7 +5,7 @@
 #include "SDL_mixer.h"
 #include "RootNode.h"
 #include "Config.h"
-#include "testNode.h"
+//#include "testNode.h"
 
 // Pointers to objects needed to initialize our program (details not important)
 SDL_Window* arcadeSystemWindow = nullptr;
@@ -69,9 +69,9 @@ int main(int argc, char* argv[])
 	else
 	{
 		// first create the root node which triggers creation of all nodes through constructor
- 		//RootNode rootNode(arcadeSystemRenderer, nullptr); 
-		TestNode testNode(arcadeSystemRenderer, nullptr);
-		currentNode = &testNode;
+ 		RootNode rootNode(arcadeSystemRenderer, nullptr); 
+		//TestNode testNode(arcadeSystemRenderer, nullptr);
+		currentNode = &rootNode;
 		
 		// pointer to a music object, holds the music currently being played in the progrm
 		Mix_Music* currentMusic = nullptr;
