@@ -1,4 +1,4 @@
-// GameNode.h
+// TetrisNode.h
 
 	#include "Node.h"
 	#include "Config.h"
@@ -17,25 +17,14 @@
 
 				Map* newMap = new Map(30,10,16,renderer_in);
 				// each  outer bracket is the row and each inner is the column
-				
-				std::vector<std::vector<int> > squarePiece =
-				{
-					{ {1},{1} },
-					{ {1},{1} }
-				};
-				std::vector<std::vector<int> > TPiece =
-				{
-					{ {1},{0},{0} },
-					{ {1},{1},{0} },
-					{ {1},{0},{0} }
-				};
+
 				std::vector<std::vector<int> > LPiece =
 				{
-					{ {1},{0},{0} },
-					{ {1},{0},{0} },
-					{ {1},{1},{0} }
+					{ 1,0,0 },
+					{ 1,0,0 },
+					{ 1,1,0 }
 				};
-				game->pieces = {squarePiece, LPiece, TPiece};
+				game->pieces = {LPiece};
 				game->setMap(newMap);
 
 				game->setisNewGame(true);
