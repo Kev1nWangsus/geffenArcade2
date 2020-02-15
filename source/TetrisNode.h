@@ -18,13 +18,50 @@
 				Map* newMap = new Map(30,10,16,renderer_in);
 				// each  outer bracket is the row and each inner is the column
 
+				std::vector<std::vector<int> > longPiece =
+				{
+					{ 1,0,0,0 },
+					{ 1,0,0,0 },
+					{ 1,0,0,0 },
+					{ 1,0,0,0 }
+				};
+				std::vector<std::vector<int> > squarePiece =
+				{
+					{ 1,1 },
+					{ 1,1 }
+				};
+				std::vector<std::vector<int> > TPiece =
+				{
+					{ 1,0,0 },
+					{ 1,1,0 },
+					{ 1,0,0 }
+				};
 				std::vector<std::vector<int> > LPiece =
 				{
 					{ 1,0,0 },
 					{ 1,0,0 },
 					{ 1,1,0 }
 				};
-				game->pieces = {LPiece};
+				std::vector<std::vector<int> > L2Piece =
+				{
+					{ 0,1,0 },
+					{ 0,1,0 },
+					{ 1,1,0 }
+
+				};
+				std::vector<std::vector<int> > zigZagPiece =
+				{
+				 	{ 1,0,0 },
+					{ 1,1,0 },
+					{ 0,1,0 }
+				};
+				std::vector<std::vector<int> > zigZag2Piece =
+				{
+				 	{ 0,1,0 },
+					{ 1,1,0 },
+					{ 1,0,0 }
+				};
+				game->pieces = {squarePiece, longPiece, LPiece, L2Piece, TPiece,zigZagPiece, zigZag2Piece};
 				game->setMap(newMap);
 
 				game->setisNewGame(true);

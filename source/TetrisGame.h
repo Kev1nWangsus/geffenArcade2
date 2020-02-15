@@ -19,11 +19,18 @@ class TetrisGame : public GameScreen
     bool moveRight(std::vector<Entity*>& piece);
     bool moveUp(std::vector<Entity*>& piece);
     bool moveDown(std::vector<Entity*>& piece);
-
+    void rotatePiece(std::vector<Entity*>& piece, point rot_in);
     std::vector<std::vector<std::vector<int> > > pieces;
 
     private:
     Map* m;
+
+    point rot;
+    bool hasRotated = false;
+
+    bool getNextPiece;
+    int pieceIndex = 0;
+    int count = 0;
 };
 
 #endif
